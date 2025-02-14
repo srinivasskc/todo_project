@@ -72,8 +72,8 @@ def append_json_task_to_json():
 
 append_json_task_to_json()   
 
-
 print("\n")
+print("Write back json list to json file")
 
 # Writing back to JSON File with write mode.
 def write_back_to_json_file():
