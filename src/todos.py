@@ -5,92 +5,94 @@ To-Do Project
 import uuid
 import json
 
-# Generate Unique IDs for To Do List.
 
+# Function to Generate Unique IDs
 def generate_unique_todo_id():
     """
     Generate Unique ID using UUID
     """
     return uuid.uuid4().hex
 
-new_todo = {
-        "title": "Generate UUID from a function again",
-        "Status": True
-            }
-
-
-new_todo["id"] = generate_unique_todo_id()
-print("New Todo: ",new_todo)
 
 DATA_FILE = "data/todos.json"
 
-print("\nNow - Print Load List Function \n")
 
-
+# Function to Load JSON List
 def load_list():
     """
     Load the list of todos from a JSON file.
     """
-    with open(DATA_FILE,"r",encoding="UTF-8") as file:
+    with open(DATA_FILE, "r", encoding="UTF-8") as file:
         json_tasks = json.load(file)
-        return json_tasks
+        print(json_tasks)
+        print(type(json_tasks))  #The JSON from file is stored in json_tasks as a list.
+        return json_tasks  # returns the list of json tasks
+
 
 print(load_list())
 
 
-
-print("\nNow - Get Todo Details Function \n")
-
-def get_todo_details(todo_id):
+# Function to Save JSON List Back
+def save_list(json_tasks):
     """
-     Retrieve details for a specific todo based on a unique identifier 
+    Save the current list of todos back to the JSON file
+    """
+    # dump(from,to,indentation)
+    with open(DATA_FILE, "w", encoding="UTF-8") as file:
+        json.dump(json_tasks, file, indent=4)
+    print("ToDo's saved Successfully")
+
+
+# Function to Append New Todo
+def append_new_todo(title, status=True):
+    """
+    Append a new todo only if it doesn't already exist
     """
     todos = load_list()
-    print("All Todos: ",todos)
+
+    # Generate a new todo dictionary
+    new_todo = {
+        "id": generate_unique_todo_id(),
+        "title": title,
+        "description": "Step 1 of Becoming Technical Tester",
+        "doneStatus": status
+    }
+
+    # Check if the new todo already exists (based on title)
+    for todo in todos:
+        if todo["title"] == title:
+            print("Todo already exists. Not adding duplicate.")
+            return
+    
+    todos.append(new_todo)
+    save_list(todos)
+    print("New Todo Added: ", new_todo)
+
+
+# Function to Retrieve Todo by ID
+def get_todo_details(todo_id):
+    """
+    Retrieve details for a specific todo based on a unique identifier
+    """
+    todos = load_list()
+    print("All Todos: ", todos)
     print("\n")
 
     for todo in todos:
         if todo["id"] == todo_id:
-            return todo
+            return todo  # Return the matching todo
 
-print(get_todo_details("7f9047b5faf247b2907b99827dca568c"))
+    print("Todo not found.")
+    return None  # Return None if not found
 
+# Run the function to add a new todo
+append_new_todo("Generate UUID from a function again")
 
-print("\n")
+# Example: Retrieve a todo by its ID
+TODO_ID_TO_SEARCH = "7f9047b5faf247b2907b99827dca568c"
+todo_details = get_todo_details(TODO_ID_TO_SEARCH)
 
-print("Appending the new json task back to json list")
-
-def append_json_task_to_json():
-    """
-    Appending the New JSON Task to JSON 
-    """
-    with open(DATA_FILE,"r",encoding="UTF-8") as file: 
-        json_tasks = json.load(file)
-        json_tasks.append(new_todo)
-        print(json_tasks)
-        #print(type(json_tasks))
-
-append_json_task_to_json()   
-
-print("\n")
-print("Write back json list to json file")
-
-# Writing back to JSON File with write mode.
-def write_back_to_json_file():
-    """
-    Writing back to JSON File with write mode.
-    """
-    with open(DATA_FILE,"r",encoding="UTF-8") as file:
-        json_tasks = json.load(file)
-        print(json_tasks)
-    
-    json_tasks.append(new_todo)
-    print(json_tasks)
-    
-    # dump(from,to,indentation)
-    with open(DATA_FILE,"w",encoding="UTF-8") as file_write:
-        json.dump(json_tasks,file_write,indent=4)
-        print("Appended Successfully")
-
-write_back_to_json_file()
-
+if todo_details:
+    print("ToDo Found", todo_details)
+else:
+    print(f"ToDo with ID {TODO_ID_TO_SEARCH} is not found")

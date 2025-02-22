@@ -6,23 +6,9 @@
         "doneStatus": false
     },
     {
+        "id": "a05e5d7c0c804a2d8b783754c920d57b",
         "title": "Generate UUID from a function again",
-        "Status": true,
-        "id": "277e1bb141c14b5aad4150bb9f6ee1a4"
-    },
-    {
-        "title": "Generate UUID from a function again",
-        "Status": true,
-        "id": "527a6ee690f545d689b26689599ccbc9"
-    },
-    {
-        "title": "Generate UUID from a function again",
-        "Status": true,
-        "id": "9c5ea5eb1de54c808aab7baf94f6c52f"
-    },
-    {
-        "title": "Generate UUID from a function again",
-        "Status": true,
-        "id": "35fa3cb8c74943a09729cd93a2063b93"
+        "description": "Step 1 of Becoming Technical Tester",
+        "doneStatus": true
     }
 ]
