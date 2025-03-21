@@ -61,7 +61,26 @@ Step 10: Add files to version control and commit:
 git add .
 git commit -m "Setup virtual environment, requirements, and JSON storage"
 git push origin feature/todo-management
+
+Github Link: 
 ```    
+
+
+
+todo_project/
+│
+├── data/
+│   └── todos.json
+├── logging/
+│   └── app.log
+├── src/
+│   └── todos.py         # Core logic functions
+├── main.py              # Entry point to interact with the functions
+├── requirements.in
+├── requirements.txt
+├── .gitignore
+└── README.md
+└── dev_notes.md
 
 
 

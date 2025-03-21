@@ -1,8 +1,16 @@
-2025-02-22 13:19:09,550 - WARNING  - File data/todo.json not found. Returning an empty list
-2025-02-22 13:19:09,551 - WARNING  - File data/todo.json not found. Returning an empty list
-2025-02-22 13:20:57,853 - WARNING  - File data/todo.json not found. Returning an empty list
-2025-02-22 13:21:48,779 - ERROR  - JSON Decode Error: Expecting value: line 1 column 1 (char 0)
-2025-02-22 13:22:35,503 - ERROR  - JSON Decode Error: Expecting property name enclosed in double quotes: line 1 column 2 (char 1)
-2025-02-22 13:24:04,678 - ERROR  - JSON Decode Error: Expecting ',' delimiter: line 3 column 1 (char 45)
-2025-02-22 13:24:24,744 - ERROR  - JSON Decode Error: Expecting ',' delimiter: line 4 column 9 (char 36)
-2025-02-22 13:24:47,893 - ERROR  - JSON Decode Error: Expecting value: line 3 column 15 (char 22)
+2025-03-21 13:26:48,058 - WARNING  - File data/todos.json not found. Returning an empty list
+2025-03-21 13:27:44,161 - ERROR  - JSON Decode Error: Expecting value: line 1 column 1 (char 0)
+2025-03-21 13:30:47,352 - WARNING  - File data/todos1.json not found. Returning an empty list
+2025-03-21 13:33:45,188 - ERROR  - JSON Decode Error: Expecting ',' delimiter: line 5 column 9 (char 70)
+2025-03-21 13:35:13,882 - ERROR  - JSON Decode Error: Expecting ',' delimiter: line 5 column 9 (char 70)
+2025-03-21 13:35:13,883 - ERROR  - JSON Decode Error: Expecting ',' delimiter: line 5 column 9 (char 70)
+2025-03-21 13:37:38,011 - INFO  - JSON loaded from data/todos.json
+2025-03-21 13:37:38,012 - INFO  - JSON loaded from data/todos.json
+2025-03-21 13:37:47,951 - INFO  - JSON loaded from data/todos.json
+2025-03-21 13:37:47,952 - INFO  - JSON loaded from data/todos.json
+2025-03-21 13:39:28,147 - INFO  - JSON loaded from data/todos.json
+2025-03-21 13:39:28,148 - INFO  - JSON loaded from data/todos.json
+2025-03-21 13:39:39,453 - INFO  - JSON loaded from data/todos.json
+2025-03-21 13:40:15,019 - INFO  - JSON loaded from data/todos.json
+2025-03-21 13:40:25,417 - INFO  - JSON loaded from data/todos.json
+2025-03-21 13:40:25,418 - INFO  - JSON loaded from data/todos.json
