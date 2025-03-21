@@ -62,25 +62,37 @@ git add .
 git commit -m "Setup virtual environment, requirements, and JSON storage"
 git push origin feature/todo-management
 
-Github Link: 
+Github Link: https://github.com/srinivasskc/todo_project/tree/feature/todo-management
+
 ```    
 
 
+## Project Structure:
+
+```
 
 todo_project/
-│
+├── .gitignore
 ├── data/
-│   └── todos.json
+├── ├── todos.json
+├── dev_notes.md
+├── LICENSE
 ├── logging/
-│   └── app.log
-├── src/
-│   └── todos.py         # Core logic functions
-├── main.py              # Entry point to interact with the functions
+├── ├── app.log
+├── main.py                 # Entry point to interact with the functions
+├── README.md
 ├── requirements.in
 ├── requirements.txt
-├── .gitignore
-└── README.md
-└── dev_notes.md
+├── setup.py
+├── src/
+├── ├── temp.py
+├── ├── todos.py             # Core logic functions
+
+
+
+
+## License
+This repository is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 
 
