@@ -4,7 +4,28 @@ To-Do Project
 
 import uuid
 import json
+import logging
+import os
 
+
+# First write the setup of logging function.
+
+def setup_logging():
+    """
+    Setup Logging
+    """
+    logging.basicConfig(
+        level=logging.DEBUG,
+        format="%(asctime)s - %(levelname)s  - %(message)s",
+        # asctime = ASCII Time.
+        handlers=[
+            logging.FileHandler("logging/app.log"),
+            logging.StreamHandler()
+        ]
+    )
+
+# Call the logging function
+setup_logging()
 
 DATA_FILE = "data/todos.json"
 
@@ -14,12 +35,22 @@ def load_list():
     """
     Load the list of todos from a JSON file.
     """
-    with open(DATA_FILE, "r", encoding="UTF-8") as file:
-        json_tasks = json.load(file)
-        # print(json_tasks)
-        # print(type(json_tasks))  #The JSON from file is stored in json_tasks as a list.
-        return json_tasks  # returns the list of json tasks
+    if not os.path.exists(DATA_FILE):
+        logging.warning("File %s not found. Returning an empty list", DATA_FILE)
+        return []
 
+    try:
+        with open(DATA_FILE, "r", encoding="UTF-8") as file:
+            json_tasks = json.load(file)
+            # print(json_tasks)
+            # print(type(json_tasks))  #The JSON from file is stored in json_tasks as a list.
+            return json_tasks  # returns the list of json tasks
+    except json.JSONDecodeError as jde:
+        logging.error("JSON Decode Error: %s",jde)
+        return []
+    except (OSError,IOError) as e:
+        logging.error("Unexpected error while loading: %s", e)
+        return []
 
 print("Returning the Json from file: \n", load_list())
 
@@ -97,3 +128,66 @@ if todo_details:
     print("ToDo Found: \n", todo_details)
 else:
     print(f"ToDo with ID {TODO_ID_TO_SEARCH} is not found")
+
+############################################################################################
+
+def remove_todo(todo_id):
+    """
+    Remove a todo item from the list using todo_id.
+    """
+    with open(DATA_FILE, "r", encoding="UTF-8") as file:
+        json_tasks = json.load(file) 
+        print("Listing the JSON Tasks: \n",json_tasks)
+
+    updated_todos = []
+    for todo in json_tasks:
+        if todo["id"] != todo_id:
+            updated_todos.append(todo)
+
+    if updated_todos == json_tasks:  # No Changes, todo was not found
+        print(f'ToDo with {todo_id} is not found')
+        return False
+
+    save_list(updated_todos) #Saving the updated list.
+    print(f'ToDo with {todo_id} removed successfully')
+    return True
+
+# Example:
+TODO_ID_TO_REMOVE = "a05e5d7c0c804a2d8b783754c920d57b"
+remove_todo(TODO_ID_TO_REMOVE)
+
+####################################################################################
+def update_todo(todo_id, updates):
+    """
+    Update an existing todo item with new data.
+    
+    :param todo_id: The unique ID of the todo to update.
+    :param updates: A dictionary containing fields to update.
+    """
+    with open(DATA_FILE, "r", encoding="UTF-8") as file:
+        json_tasks = json.load(file) 
+        print("Listing the JSON Tasks: \n",json_tasks)
+        todo_found = False
+
+        for todo in json_tasks:
+            if todo["id"] == todo_id:
+                todo.update(updates)
+                todo_found = True
+                break
+        if not todo_found:
+            print(f'{todo_id} is not found')
+            return False
+        
+        save_list(json_tasks)
+        print(f'To Do with {todo_id} saved successfully')
+        return True
+
+# Example: Update a Todo
+TODO_ID_TO_UPDATE = "338b8e7cc41c4173bdd3b9564b348003"  # Replace with an existing ID
+NEW_DATA = {
+    "title": "Updated Todo Title",
+    "description": "This is an updated description.",
+    "doneStatus": True
+}
+
+update_todo(TODO_ID_TO_UPDATE, NEW_DATA)
