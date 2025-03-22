@@ -55,7 +55,16 @@ def load_list():
         logging.error("Unexpected error while loading: %s", e)
         return []
         
-# Test loading
-print("Trying to load todos from JSON...")
-todos = load_list()
-print("Result:", todos)
+
+# Function to Save the current list of JSON back to JSON File
+def save_list(todo_list):
+    """
+    Save the list of todos back to a JSON file.
+    """
+    try:
+        with(open(DATA_FILE, "w", encoding="UTF-8")) as file:
+            json.dump(todo_list, file, indent=4)
+        logging.info("JSON saved to %s", DATA_FILE)
+    except (OSError, IOError) as e:
+        logging.error("Unexpected error while saving: %s", e)
+        return []
