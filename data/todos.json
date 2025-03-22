@@ -1,20 +1,8 @@
 [
     {
-        "id": "123",
-        "title": "Manual Add",
-        "description": "Added directly in main.py",
-        "doneStatus": false
-    },
-    {
-        "id": "123",
-        "title": "Manual Add",
-        "description": "Added directly in main.py",
-        "doneStatus": false
-    },
-    {
-        "id": "123",
-        "title": "Manual Add",
-        "description": "Added directly in main.py",
-        "doneStatus": false
+        "title": "New Todo Item",
+        "description": "This is a new todo item that is added to the list.",
+        "doneStatus": false,
+        "id": "d6ffa0109e2443e5912ddc347458c560"
     }
 ]

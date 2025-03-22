@@ -1,12 +1,19 @@
-from src.todos import (load_list, save_list)
+from src.todos import (load_list, append_list)
 
-print(load_list())
-
+# 1. Load and print current todos
+print("---Current Todos---")
 todos = load_list()
-todos.append({
-    "id": "123",
-    "title": "Manual Add",
-    "description": "Added directly in main.py",
-    "doneStatus": False
-})
-save_list(todos)
+for todo in todos:
+    print("\n")
+    print(todo)
+
+# 2. Append a new todo to the list
+print("\n--- Appending a New Todo ---")
+print("\n")
+append_list()
+
+# 3. Load and print updated todos
+print("\n--- Updated Todos ---")
+updated_todos = load_list()
+for todo in updated_todos:
+    print(todo)

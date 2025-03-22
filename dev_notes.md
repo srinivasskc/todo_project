@@ -12,7 +12,7 @@
     - If the todos.json file is having [] empty json, [] is returned.
 - Next Task::: save_list(todo_list)
 
-## 2025-03-21
+## 2025-03-22
 - Worked on save_list(todo_list)
     - This will first open the DATA_FILE with write access
     - we will be using JSON.dump() to add data from todo_list to DATA_FILE
