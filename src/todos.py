@@ -3,9 +3,10 @@ To-Do Project
 """
 
 import json
-import logging
 import os
 from uuid import uuid4
+
+from utils.logger import logger
 
 
 # Generate the unique ID for the task.
@@ -16,27 +17,8 @@ def generate_id():
     return uuid4().hex
 
 
-# First write the setup of logging function.
-
-
-def setup_logging():
-    """
-    Setup Logging
-    """
-    logging.basicConfig(
-        level=logging.DEBUG,
-        format="%(asctime)s - %(levelname)s  - %(message)s",
-        # asctime = ASCII Time.
-        handlers=[logging.FileHandler("logging/app.log"), logging.StreamHandler()],
-    )
-
-
-# Call the logging function
-setup_logging()
-
-
 # Then fetch the hardcoded data from the file.
-DATA_FILE = "data/todos.json"
+TODO_FILE = "data/todo.json"
 
 
 # Function to Load JSON List
@@ -44,24 +26,20 @@ def load_list():
     """
     Load the list of todos from a JSON file.
     """
-    if not os.path.exists(DATA_FILE):
-        logging.warning("File %s not found. Returning an empty list", DATA_FILE)
+    if not os.path.exists(TODO_FILE):
+        logger.warning("File %s not found. Returning an empty list", TODO_FILE)
         return []
 
     try:
-        with open(DATA_FILE, "r", encoding="UTF-8") as file:
-            json_tasks = json.load(file)
-            logging.info("JSON loaded from %s", DATA_FILE)
-            print(json_tasks)
-            print(
-                type(json_tasks)
-            )  # The JSON from file is stored in json_tasks as a list.
-            return json_tasks  # returns the list of json tasks
+        with open(TODO_FILE, "r", encoding="UTF-8") as file:
+            json_data = json.load(file)
+            logger.info("JSON loaded from %s", TODO_FILE)
+            return json_data  # returns the list of json tasks
     except json.JSONDecodeError as jde:
-        logging.error("JSON Decode Error: %s", jde)
+        logger.error("JSON Decode Error: %s", jde)
         return []
     except (OSError, IOError) as e:
-        logging.error("Unexpected error while loading: %s", e)
+        logger.error("Unexpected error while loading: %s", e)
         return []
 
 

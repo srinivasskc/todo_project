@@ -1,8 +1,1 @@
-[
-    {
-        "title": "New Todo Item",
-        "description": "This is a new todo item that is added to the list.",
-        "doneStatus": false,
-        "id": "d6ffa0109e2443e5912ddc347458c560"
-    }
-]
+[{"title": "Sample Todo", "description": "This is a sample todo item.", "doneStatus": false, "id": "1101adb6fb8642209a5ab8cdb17b2231"}]

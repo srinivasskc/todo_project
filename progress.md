@@ -6,14 +6,14 @@ Track your daily goals and progress here. Check `[x]` when complete!
 
 ## 📅 Day 1 – Project Setup & `load_list`
 
-- [ ] Set up project folder structure  
-- [ ] Create `todos.json` file in `data/` or let app create it
-- [ ] Implement `load_list()` with logging and error handling
-- [ ] Set up logging in `utils/logger.py`
-- [ ] Write unit tests for `load_list()`:
-  - [ ] File missing
-  - [ ] Valid JSON file
-  - [ ] Invalid JSON file
+- [X] Set up project folder structure  
+- [X] Create `todos.json` file in `data/` or let app create it
+- [X] Implement `load_list()` with logging and error handling
+- [x] Set up logging in `utils/logger.py`
+- [x] Write unit tests for `load_list()`:
+  - [x] File missing
+  - [x] Valid JSON file
+  - [x] Invalid JSON file
 
 ---
 
