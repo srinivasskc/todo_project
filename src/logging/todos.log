@@ -1,0 +1,48 @@
+2025-04-08 15:24:06,696 - WARNING  - File data/todos.json not found. Returning an empty list
+2025-04-08 15:24:06,703 - ERROR  - JSON Decode Error: Expecting value: line 1 column 1 (char 0)
+2025-04-08 15:24:06,712 - INFO  - JSON loaded from data/todos.json
+2025-04-08 15:24:59,499 - WARNING  - File data/todos.json not found. Returning an empty list
+2025-04-08 15:24:59,501 - ERROR  - JSON Decode Error: Expecting value: line 1 column 1 (char 0)
+2025-04-08 15:24:59,511 - INFO  - JSON loaded from data/todos.json
+2025-04-08 15:26:47,875 - WARNING  - File data/todos.json not found. Returning an empty list
+2025-04-08 15:26:47,877 - ERROR  - JSON Decode Error: Expecting value: line 1 column 1 (char 0)
+2025-04-08 15:26:47,886 - INFO  - JSON loaded from data/todos.json
+2025-04-08 15:32:21,467 - WARNING  - File data/todos.json not found. Returning an empty list
+2025-04-08 15:32:21,470 - ERROR  - JSON Decode Error: Expecting value: line 1 column 1 (char 0)
+2025-04-08 15:32:21,478 - INFO  - JSON loaded from data/todos.json
+2025-04-08 15:32:37,339 - WARNING  - File data/todos.json not found. Returning an empty list
+2025-04-08 15:32:37,341 - ERROR  - JSON Decode Error: Expecting value: line 1 column 1 (char 0)
+2025-04-08 15:32:37,350 - INFO  - JSON loaded from data/todos.json
+2025-04-08 15:32:40,097 - WARNING  - File data/todos.json not found. Returning an empty list
+2025-04-08 15:32:40,099 - ERROR  - JSON Decode Error: Expecting value: line 1 column 1 (char 0)
+2025-04-08 15:32:40,106 - INFO  - JSON loaded from data/todos.json
+2025-04-08 15:34:00,904 - WARNING  - File data/todo.json not found. Returning an empty list
+2025-04-08 15:34:00,906 - ERROR  - JSON Decode Error: Expecting value: line 1 column 1 (char 0)
+2025-04-08 15:34:00,914 - INFO  - JSON loaded from data/todo.json
+2025-04-08 15:34:05,745 - WARNING  - File data/todo.json not found. Returning an empty list
+2025-04-08 15:34:05,748 - ERROR  - JSON Decode Error: Expecting value: line 1 column 1 (char 0)
+2025-04-08 15:34:05,755 - INFO  - JSON loaded from data/todo.json
+2025-04-08 15:34:15,790 - WARNING  - File data/todo.json not found. Returning an empty list
+2025-04-08 15:34:15,793 - ERROR  - JSON Decode Error: Expecting value: line 1 column 1 (char 0)
+2025-04-08 15:34:15,801 - INFO  - JSON loaded from data/todo.json
+2025-04-08 15:34:19,398 - WARNING  - File data/todo.json not found. Returning an empty list
+2025-04-08 15:34:19,401 - ERROR  - JSON Decode Error: Expecting value: line 1 column 1 (char 0)
+2025-04-08 15:34:19,409 - INFO  - JSON loaded from data/todo.json
+2025-04-10 06:20:29,956 - WARNING  - File data/todo.json not found. Returning an empty list
+2025-04-10 06:20:29,969 - ERROR  - JSON Decode Error: Expecting value: line 1 column 1 (char 0)
+2025-04-10 06:20:29,981 - INFO  - JSON loaded from data/todo.json
+2025-04-10 06:22:40,843 - WARNING  - File data/todo.json not found. Returning an empty list
+2025-04-10 06:22:40,848 - ERROR  - JSON Decode Error: Expecting value: line 1 column 1 (char 0)
+2025-04-10 06:22:40,861 - INFO  - JSON loaded from data/todo.json
+2025-04-10 06:23:03,812 - WARNING  - File data/todo.json not found. Returning an empty list
+2025-04-10 06:23:03,817 - ERROR  - JSON Decode Error: Expecting value: line 1 column 1 (char 0)
+2025-04-10 06:23:03,832 - INFO  - JSON loaded from data/todo.json
+2025-04-10 06:50:14,014 - INFO  - JSON loaded from ../data/todos.json
+2025-04-10 07:00:50,530 - INFO  - JSON loaded from ../data/todos.json
+2025-04-10 07:00:50,531 - INFO  - Todo found with ID 1101adb6fb8642209a5ab8cdb17b2231
+2025-04-10 07:06:53,671 - INFO  - JSON loaded from ../data/todos.json
+2025-04-10 07:06:53,673 - INFO  - JSON loaded from ../data/todos.json
+2025-04-10 07:06:53,673 - INFO  - Todo found with ID 1101adb6fb8642209a5ab8cdb17b2231
+2025-04-10 07:07:39,498 - INFO  - JSON loaded from ../data/todos.json
+2025-04-10 07:07:39,500 - INFO  - JSON loaded from ../data/todos.json
+2025-04-10 07:07:39,500 - INFO  - Todo found with ID 1101adb6fb8642209a5ab8cdb17b2231

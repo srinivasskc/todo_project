@@ -5,7 +5,6 @@ To-Do Project
 import json
 import os
 from uuid import uuid4
-
 from utils.logger import logger
 
 
@@ -18,22 +17,22 @@ def generate_id():
 
 
 # Then fetch the hardcoded data from the file.
-TODO_FILE = "data/todo.json"
+TODO_FILE = "../data/todos.json"
 
 
 # Function to Load JSON List
-def load_list():
+def load_list(file_path=TODO_FILE):
     """
     Load the list of todos from a JSON file.
     """
-    if not os.path.exists(TODO_FILE):
-        logger.warning("File %s not found. Returning an empty list", TODO_FILE)
+    if not os.path.exists(file_path):
+        logger.warning("File %s not found. Returning an empty list", file_path)
         return []
 
     try:
-        with open(TODO_FILE, "r", encoding="UTF-8") as file:
+        with open(file_path, "r", encoding="UTF-8") as file:
             json_data = json.load(file)
-            logger.info("JSON loaded from %s", TODO_FILE)
+            logger.info("JSON loaded from %s", file_path)
             return json_data  # returns the list of json tasks
     except json.JSONDecodeError as jde:
         logger.error("JSON Decode Error: %s", jde)
@@ -43,53 +42,45 @@ def load_list():
         return []
 
 
-# Function to Save the current list of JSON back to JSON File
-def save_list(todo_list):
+
+# Function to get to do details by its unique ID
+def get_todo_details_by_id(todo_id,file_path=TODO_FILE):
     """
-    Save the list of todos back to a JSON file.
-    """
-    try:
-        with open(DATA_FILE, "w", encoding="UTF-8") as file:
-            json.dump(todo_list, file, indent=4)
-        logging.info("JSON saved to %s", DATA_FILE)
-    except (OSError, IOError) as e:
-        logging.error("Unexpected error while saving: %s", e)
-        return []
+    Get the todo details by its unique ID.
 
+    Args:
+        todo_id (str): The unique ID of the todo.
+        file_path (str): The path to the JSON file.
 
-# Function to append data to existing JSON File.
-
-
-def append_list():
-    """
-    Append the new list of todo to a JSON list.
-    """
-    new_todo = {
-        "title": "New Todo Item",
-        "description": "This is a new todo item that is added to the list.",
-        "doneStatus": False,
-        "id": generate_id(),
-    }
-
-    print("Trying to Add new todo:", new_todo)
-
-    todos = load_list()
-
-    # Check if new todo already exists in todos list.
-    # If it already exists, do not add it again.
-    # If it does not exist, add it to the list.
-    found = False
-    for todo in todos:
-        if todo["title"] == new_todo["title"]:
-            found = True
-            break
+    Returns:
+        dict: The todo details if found, otherwise None.
     
-    if not found:
-        todos.append(new_todo)
+    Raises:
+        FileNotFoundError: If the JSON file does not exist.
+        json.JSONDecodeError: If the JSON file is not valid.
+    """
+    todos_list = load_list(file_path)
+    for todo in todos_list:
+        if todo["id"] == todo_id:
+            logger.info("Todo found with ID %s", todo_id)
+            return todo
+    logger.warning("Todo with ID %s not found", todo_id)
+    # If the todo is not found, return None
+    # return None
+    # or raise an exception.
+    raise ValueError(f"Todo with ID {todo_id} not found.")
 
-        with open(DATA_FILE, "w", encoding="UTF-8") as file_write:
-            json.dump(todos, file_write, indent=4)
-        print("New Todo Item Added to the List.")
-    else:
-        print("Todo Item already exists in the List.")
+    
+if __name__ == "__main__":
+    # Load the list of todos from the JSON file and print to console.
+    todos = load_list()
+    print("Running todos.py")
+    print(todos)
 
+    # Try fetching a todo by ID
+    try:
+        TODO_ID = "1101adb6fb8642209a5ab8cdb17b2231"  # Change this to an actual ID from your JSON file
+        todo = get_todo_details_by_id(TODO_ID)
+        print(f"Todo found:\nTitle: {todo['title']}\nDescription: {todo['description']}")
+    except ValueError as e:
+        print(f"{e}")
